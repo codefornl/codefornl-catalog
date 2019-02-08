@@ -1,0 +1,18 @@
+apiVersion: v1
+name: consul
+home: https://www.consulproject.org
+version: 0.0.1
+appVersion: 0.18.1
+description: Consul - Open Government and E-Participation Web Software .
+keywords:
+- "e-governement"
+- "democracy"
+- "open-governement"
+- "participation"
+- "citizens"
+sources:
+- https://github.com/codefornl/consul
+maintainers:
+- name: milovanderlinden
+  email: milo@codefor.nl
+icon: https://github.com/codefornl/consul/raw/master/public/consul_logo.png
