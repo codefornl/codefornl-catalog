@@ -1,0 +1,16 @@
+name: wordpress
+version: 1.0.5
+appVersion: 4.9.5
+description: Build, engage, and organize your constituents Get the powerful open source CRM used by more than 10,000 non-profits.
+icon: https://civicrm.org/sites/civicrm.org/files/logo_6.png
+keywords:
+- civic
+- tech
+- engage
+- crm
+home: https://civicrm.org
+sources:
+- https://github.com/civicrm/civicrm-core
+maintainers:
+- name: milovanderlinden
+  email: milo@codefor.nl
