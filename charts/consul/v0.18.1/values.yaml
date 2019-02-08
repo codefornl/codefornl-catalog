@@ -1,0 +1,78 @@
+replicaCount: 1
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxUnavailable: 0
+image:
+  repository: codefornl/consul
+  tag: v0.18.1
+  pullPolicy: IfNotPresent
+env:
+  open:
+    # storage backend, can be one of: local, alibaba, amazon, google, microsoft
+    STORAGE: local
+  secret:
+    # username for basic http authentication
+    BASIC_AUTH_USER:
+    # password for basic http authentication
+    BASIC_AUTH_PASS:
+    # GCP service account json file
+    GOOGLE_CREDENTIALS_JSON:
+    # Redis requirepass server configuration
+    CACHE_REDIS_PASSWORD:
+deployment:
+  annotations: {}
+replica:
+  annotations: {}
+service:
+  type: ClusterIP
+  externalPort: 8080
+  nodePort:
+  annotations: {}
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 80m
+    memory: 64Mi
+
+persistence:
+  enabled: false
+  accessMode: ReadWriteOnce
+  size: 8Gi
+
+postgres:
+  ## Whether to deploy a mariadb server to satisfy the applications database requirements. To use an external database set this to false and configure the externalDatabase parameters
+  enabled: true
+
+  image:
+    # registry: docker.io
+    repository: postgres
+    tag: 9.4.5
+
+  ## Use password authentication
+  usePassword: false
+
+  ## Enable persistence using Persistent Volume Claims
+  ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
+  ##
+  persistence:
+    enabled: true
+
+    ## A manually managed Persistent Volume and Claim
+    ## Requires persistence.enabled: true
+    ## If defined, PVC must be created manually before volume will be bound
+    # existingClaim:
+
+    ## mariadb data Persistent Volume Storage Class
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    ##
+    storageClass: ""
+    accessMode: ReadWriteOnce
+    size: 8Gi

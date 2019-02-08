@@ -1,8 +1,0 @@
-name: Consul
-description: |
-  Open Government and E-Participation Web Software
-version: v0.18.1
-category: Civic Tech
-maintainer: "Milo van der Linden <milo@codefor.nl>"
-minimum_rancher_version: v2.1.5
-license: 

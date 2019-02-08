@@ -1,0 +1,7 @@
+pipeline:
+  lint-charts:
+    image: guangbo/chart-testing:v2.0.2-rancher1
+    commands:
+      - git remote add codefornl-charts https://github.com/coefornl/codefornl-catalog
+      - git fetch codefornl-charts master
+- ct lint --config test/ct.yaml
